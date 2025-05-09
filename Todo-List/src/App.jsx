@@ -8,14 +8,14 @@ const App = () => {
     const ToName = e.target.ToName.value.trim();
 
     if (!ToName) {
-      alert("Please enter a task name.");
+      alert("Please enter a task name...");
       return;
     }
 
     if (!TodoList.includes(ToName)) {
       setTodoList([...TodoList, ToName]);
     } else {
-      alert('Todo name already exists...');
+      alert('Todo name already exist...');
     }
 
     e.target.reset();
@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 flex flex-col items-center p-8">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6">📝 ToDo List</h1>
+      <h1 className="text-4xl font-bold text-gray-800 mb-6"> ToDo List</h1>
 
       <form
         onSubmit={saveTodoList}
