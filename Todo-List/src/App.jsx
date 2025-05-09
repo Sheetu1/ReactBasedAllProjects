@@ -15,7 +15,7 @@ const App = () => {
     if (!TodoList.includes(ToName)) {
       setTodoList([...TodoList, ToName]);
     } else {
-      alert('Todo name already exist...');
+      alert('Todo name already exists...');
     }
 
     e.target.reset();
@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 flex flex-col items-center p-8">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6"> ToDo List</h1>
+      <h1 className="text-4xl font-bold text-gray-800 mb-6">ToDo List</h1>
 
       <form
         onSubmit={saveTodoList}
@@ -48,9 +48,14 @@ const App = () => {
           {TodoList.map((item, index) => (
             <li
               key={index}
-              className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200 transition"
+              className="flex justify-between items-center px-3 py-2 bg-gray-100 rounded hover:bg-gray-200 transition"
             >
-              ✅ {item}
+              <span>✅ {item}</span>
+              <span
+                className="cursor-pointer text-2xl text-red-500 hover:text-red-700"
+              >
+                &times;
+              </span>
             </li>
           ))}
         </ul>
