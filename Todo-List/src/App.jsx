@@ -1,22 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const App = () => {
-  let saveTodoList = (e) => {
+  const [TodoList, setTodoList] = useState([]);
+
+  const saveTodoList = (e) => {
     e.preventDefault();
-    let ToName = e.target.ToName.value;
-    alert(ToName);
-  }
+    const ToName = e.target.ToName.value.trim();
+
+    if (!ToName) {
+      alert("Please enter a task name.");
+      return;
+    }
+
+    if (!TodoList.includes(ToName)) {
+      setTodoList([...TodoList, ToName]);
+    } else {
+      alert('Todo name already exists...');
+    }
+
+    e.target.reset();
+  };
 
   return (
-    <div>
-     <form onSubmit={saveTodoList} className='flex items-center justify-center pt-8 gap-2'>
-      <h1>ToDo List</h1>
-       <input className='px-10 py-2  rounded-md ' type="text" name='ToName' placeholder='Enter Your Task' />
-      <button className='px-2 py-2 bg-blue-500 text-white rounded-md '>Add Task</button>
-     </form>
+    <div className="min-h-screen bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 flex flex-col items-center p-8">
+      <h1 className="text-4xl font-bold text-gray-800 mb-6">📝 ToDo List</h1>
 
+      <form
+        onSubmit={saveTodoList}
+        className="w-full max-w-md bg-white rounded-xl shadow-lg p-6 flex gap-4 items-center"
+      >
+        <input
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          type="text"
+          name="ToName"
+          placeholder="Enter your task"
+        />
+        <button
+          type="submit"
+          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition-all"
+        >
+          Add Task
+        </button>
+      </form>
+
+      {TodoList.length > 0 && (
+        <ul className="mt-6 w-full max-w-md bg-white shadow-md rounded-md p-4 space-y-2">
+          {TodoList.map((item, index) => (
+            <li
+              key={index}
+              className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200 transition"
+            >
+              ✅ {item}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
