@@ -42,7 +42,7 @@ const App = () => {
         />
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition-all"
+          className="px-4 py-2 bg-blue-400 hover:bg-blue-600 text-white font-semibold rounded-md transition-all"
         >
           Add Task
         </button>
