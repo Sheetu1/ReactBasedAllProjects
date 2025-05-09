@@ -21,6 +21,11 @@ const App = () => {
     e.target.reset();
   };
 
+  const deleteTodo = (indexToDelete) => {
+    const updatedList = TodoList.filter((_, index) => index !== indexToDelete);
+    setTodoList(updatedList);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 flex flex-col items-center p-8">
       <h1 className="text-4xl font-bold text-gray-800 mb-6">ToDo List</h1>
@@ -53,6 +58,7 @@ const App = () => {
               <span>✅ {item}</span>
               <span
                 className="cursor-pointer text-2xl text-red-500 hover:text-red-700"
+                onClick={() => deleteTodo(index)}
               >
                 &times;
               </span>
