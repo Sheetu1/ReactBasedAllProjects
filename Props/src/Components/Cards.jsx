@@ -1,4 +1,3 @@
-// Components/Card.jsx
 import React from 'react'
 
 const Card = ({name , img , deg}) => {
