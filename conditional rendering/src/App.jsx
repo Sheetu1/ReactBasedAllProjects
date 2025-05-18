@@ -6,16 +6,26 @@ import LogOut from './Components/LogOut';
 
 const App = () => {
   const [isLogedIn, setLoggedIn] = useState(true);
-      if(isLogedIn){
-  return (
-    <LogOut/>
-        )
-      }
-      else{
-        return(
-          <Login/>
-        )
-      }
+  //conditional rendering using if else 
+  //     if(isLogedIn){
+  // return (
+  //   <LogOut/>
+  //       )
+  //     }
+  //     else{
+  //       return(
+  //         <Login/>
+  //       )
+  //     }
+
+  // using ternery op
+  return(
+    <div>
+  {isLogedIn ? <LogOut/> : <Login/> }
+
+    </div>
+
+  )
 }
 
 export default App;
