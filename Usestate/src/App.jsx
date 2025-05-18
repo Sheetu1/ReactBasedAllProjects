@@ -1,8 +1,13 @@
+
+import "./Components/Count.css"
 import React from 'react'
+import Count from './Components/Count'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <Count/>
+    </div>
   )
 }
 
