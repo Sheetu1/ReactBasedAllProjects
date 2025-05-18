@@ -19,13 +19,21 @@ const App = () => {
   //     }
 
   // using ternery op
-  return(
-    <div>
-  {isLogedIn ? <LogOut/> : <Login/> }
+  // return(
+  //   <div>
+  // {isLogedIn ? <LogOut/> : <Login/> }
+  //   </div>
+  // )
 
-    </div>
+  // using && op
+  // return(
+  //   <div>
+  //     <h1>Welcome to react course :-</h1>
+  //     {isLogedIn && <LogOut/>}
+  //   </div>
+  // )
 
-  )
+  
 }
 
 export default App;
