@@ -1,9 +1,12 @@
 
 import React from "react";
 const App = () => {
+  const handleClick = () => {
+    alert("I am clicked");
+  }
   return(
     <div>
-      hello
+      <button onClick={handleClick}>Click me</button>
     </div>
   )
 }
